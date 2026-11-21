@@ -1,0 +1,36 @@
+# Project Documentation — Excel Sales Performance Dashboard
+
+## Objective
+
+Build a clear, year-filtered Excel dashboard that communicates key sales and profitability indicators using a synthetic multi-year transaction dataset.
+
+## Data and preparation
+
+The source file `Sales_transactions_2022_2025.csv` contains 18,045 rows and 36 columns. Transaction records were grouped into year-based and category/channel/country/month summaries. The finished workbook stores aggregates in `Dashboard Data` rather than embedding the entire original CSV.
+
+## Metrics
+
+- **Orders:** count of distinct `Order_ID` values in the selected period.
+- **Units sold:** sum of `Quantity`.
+- **Sales:** sum of source `Sales_Amount`.
+- **Profit:** sum of source `Profit`.
+- **Average order value:** sales divided by distinct orders.
+- **Category/channel/country charts:** sums of `Sales_Amount` grouped by the relevant dimension.
+
+## Dashboard components
+
+The `DASHBOARD` sheet includes five KPI cards, monthly sales line chart, sales-by-category pie chart, sales-by-channel horizontal bar chart, and sales-by-country column chart. The year selection is at cell `S4`. The left sidebar is visual only.
+
+## How to use
+
+Open the `.xlsx` file in Excel, choose a year or `All Years` in cell `S4`, and compare KPI values and chart distributions. The `READ ME` sheet explains the calculations. Do not overwrite the aggregated cells on `Dashboard Data`.
+
+## Data limitations
+
+This is synthetic data, not verified real-world sales. The source includes order statuses, and the workbook's calculations do not filter out cancelled or returned transactions. The label `Net Sales` is the workbook's name for the sum of `Sales_Amount`, not an independently validated accounting metric. The source CSV is separate from the workbook and adding new transactions will not automatically update the summary tables.
+
+## Potential future improvements
+
+- Rebuild the summaries with Power Query for refreshable data imports.
+- Add status-aware revenue and returns metrics.
+- Add more interactive filters and a documented validation workflow.
